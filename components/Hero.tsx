@@ -13,13 +13,13 @@ type HeroProps = {
 
 export default function Hero({
   name = "Nejra Mujezinović",
-  title = "Polyglot Engineer • Web + Backend + Robotics",
+  title = "Software Engineer • Web + Backend + Robotics",
   location = "Sarajevo, Bosnia & Herzegovina",
   avatarSrc = "/images/NejraMujezinovic.jpeg",
 }: HeroProps) {
   return (
     <section className="relative overflow-hidden">
-      <div className="mx-auto max-w-6xl px-6 pt-14 pb-10 md:pt-20 md:pb-14">
+      <div className="container-shell pt-14 pb-10 md:pt-20 md:pb-14">
         <div className="grid items-center gap-10 md:grid-cols-[1.2fr_0.8fr]">
           <motion.div
             initial={{ opacity: 0, y: 14 }}
@@ -33,7 +33,7 @@ export default function Hero({
               </span>
             </div>
 
-            <h1 className="mt-5 text-balance text-4xl font-semibold tracking-tight text-white md:text-5xl">
+            <h1 className="text-accent mt-5 pb-1 text-balance text-4xl font-semibold leading-[1.12] tracking-tight md:text-5xl">
               {name}
             </h1>
 
@@ -77,7 +77,7 @@ export default function Hero({
                 Download CV (LaTeX)
               </Link>
               <a
-                href="mailto:nejra.muyezinovic03@gmail.com"
+                href="mailto:nejra.mujezinovic03@gmail.com"
                 className="btn-secondary inline-flex items-center justify-center text-sm"
               >
                 Email Me

@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
 
+const dmSans = DM_Sans({ subsets: ["latin"], display: "swap" });
+
 export const metadata: Metadata = {
-  title: "Nejra Mujezinović | Polyglot Engineer",
+  title: "Nejra Mujezinović | Software Engineer",
   description:
-    "Polyglot Engineer bridging Web Development (React/Angular), Backend (Spring Boot/Node.js), and Robotics (OpenCV/Arduino).",
+    "Software engineer bridging Web Development (React/Angular), Backend (Spring Boot/Node.js), and Robotics (OpenCV/Arduino).",
   metadataBase: new URL("https://example.com"),
 };
 
@@ -15,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-black text-white antialiased">
+      <body className={`${dmSans.className} min-h-screen pt-20 text-white antialiased`}>
         {children}
       </body>
     </html>

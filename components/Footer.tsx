@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="border-t border-white/10">
-      <div className="mx-auto max-w-6xl px-6 py-10">
+      <div className="container-shell py-10">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-sm font-semibold text-white">Nejra Mujezinović</p>
@@ -25,7 +25,7 @@ export default function Footer() {
               GitHub
             </a>
             <a
-              href="https://linkedin.com/in/nejramujezinovic"
+              href="https://linkedin.com/in/nejramuyezinovic"
               target="_blank"
               rel="noreferrer"
               className="rounded-lg border border-white/10 bg-transparent px-3 py-2 text-xs font-semibold text-white/70 transition hover:bg-white/5"

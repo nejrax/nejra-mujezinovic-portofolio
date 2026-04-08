@@ -3,11 +3,11 @@ import SectionHeader from "@/components/SectionHeader";
 
 export default function RoboticsLab() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-14 md:py-20">
+    <section className="container-shell section-shell">
       <SectionHeader
         eyebrow="Robotics corner · Lab"
-        title="Visual proof: real-time gesture → motion pipeline"
-        subtitle="This section is designed to be your differentiator. Embed a demo video and show performance metrics (accuracy + latency)."
+        title="Real-time gesture → motion pipeline"
+        subtitle="A fast, measurable vision-to-embedded system: hand landmarks → classification → serial commands → motor control."
       />
 
       <div className="mt-8 grid gap-4 md:grid-cols-[1.4fr_1fr]">

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { ArrowRight, FolderKanban } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import { projects } from "@/content/projects";
 
@@ -23,7 +24,9 @@ function ProjectCard({
       initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.45, ease: "easeOut" }}
+      transition={{ type: "spring", stiffness: 220, damping: 22 }}
+      whileHover={{ y: -6, scale: 1.015 }}
+      whileTap={{ scale: 0.985 }}
       className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 shadow-glow"
     >
       <div
@@ -45,7 +48,10 @@ function ProjectCard({
             </p>
           </div>
           <div className="shrink-0 rounded-lg border border-white/10 bg-black/20 px-3 py-2">
-            <p className="font-mono text-xs text-white/70">case study</p>
+            <div className="flex items-center gap-2">
+              <FolderKanban className="h-4 w-4 text-accent-400" />
+              <p className="font-mono text-xs text-white/70">case study</p>
+            </div>
           </div>
         </div>
 
@@ -75,13 +81,14 @@ function ProjectCard({
         <div className="mt-6 flex items-center gap-3">
           <Link
             href={`/projects/${slug}`}
-            className="inline-flex items-center justify-center rounded-lg bg-white px-4 py-2 text-sm font-semibold text-black transition hover:bg-white/90"
+            className="btn-primary inline-flex items-center justify-center gap-2 text-sm"
           >
             Open Case Study
+            <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             href="/projects"
-            className="inline-flex items-center justify-center rounded-lg border border-white/15 bg-transparent px-4 py-2 text-sm font-semibold text-white/85 transition hover:bg-white/5"
+            className="btn-secondary inline-flex items-center justify-center text-sm"
           >
             All Projects
           </Link>
@@ -97,7 +104,7 @@ export default function ProjectGallery() {
   const p2 = projects[2];
 
   return (
-    <section className="mx-auto max-w-6xl px-6 py-14 md:py-20">
+    <section className="container-shell section-shell">
       <SectionHeader
         eyebrow="Selected work"
         title="Systems I’ve built end-to-end"

@@ -14,44 +14,46 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/55 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
-        <Link href="/" className="group inline-flex items-center gap-2">
-          <span className="rounded-md border border-white/10 bg-white/5 px-2 py-1 font-mono text-xs text-white/80">
-            nejra
-          </span>
-        </Link>
+    <header className="fixed top-0 left-0 right-0 z-[9999] w-full pointer-events-none">
+      <div className="container-shell pt-3 pointer-events-auto">
+        {/* KLJUČNE PROMJENE:
+          1. backdrop-blur-md (početni blur)
+          2. hover:backdrop-blur-none (uklanja blur na hover)
+          3. transition-all duration-300 (glatki prelaz)
+          4. hover:bg-black/80 (malo tamnija pozadina na hover)
+        */}
+        <div className="group flex items-center justify-between rounded-2xl border border-white/10 bg-black/45 px-4 py-2 shadow-glow backdrop-blur-md transition-all duration-500 hover:bg-black/80 hover:backdrop-blur-none">
+          <Link href="/" className="group inline-flex items-center gap-2">
+            <span className="rounded-md border border-white/10 bg-white/5 px-2 py-1 font-mono text-xs text-white/80">
+              nejra
+            </span>
+          </Link>
 
-        <nav className="flex items-center gap-2">
-          <Link
-            href="/projects"
-            className={itemClass("/projects")}
-          >
-            Projects
-          </Link>
-          <Link
-            href="/resume"
-            className={itemClass("/resume")}
-          >
-            Resume
-          </Link>
-          <a
-            href="https://github.com/nejrax"
-            target="_blank"
-            rel="noreferrer"
-            className="hidden rounded-lg border border-white/10 bg-transparent px-3 py-2 text-sm font-semibold text-white/70 transition hover:bg-white/5 sm:inline-flex"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://linkedin.com/in/nejramujezinovic"
-            target="_blank"
-            rel="noreferrer"
-            className="hidden rounded-lg border border-white/10 bg-transparent px-3 py-2 text-sm font-semibold text-white/70 transition hover:bg-white/5 sm:inline-flex"
-          >
-            LinkedIn
-          </a>
-        </nav>
+          <nav className="flex items-center gap-2">
+            <Link href="/projects" className={itemClass("/projects")}>
+              Projects
+            </Link>
+            <Link href="/resume" className={itemClass("/resume")}>
+              Resume
+            </Link>
+            <a
+              href="https://github.com/nejrax"
+              target="_blank"
+              rel="noreferrer"
+              className="hidden rounded-lg border border-white/10 bg-transparent px-3 py-2 text-sm font-semibold text-white/70 transition hover:bg-white/5 sm:inline-flex"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com/in/nejramuyezinovic"
+              target="_blank"
+              rel="noreferrer"
+              className="hidden rounded-lg border border-white/10 bg-transparent px-3 py-2 text-sm font-semibold text-white/70 transition hover:bg-white/5 sm:inline-flex"
+            >
+              LinkedIn
+            </a>
+          </nav>
+        </div>
       </div>
     </header>
   );

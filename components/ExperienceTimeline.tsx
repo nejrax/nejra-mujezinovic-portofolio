@@ -1,4 +1,8 @@
+"use client";
+
 import SectionHeader from "@/components/SectionHeader";
+import { motion } from "framer-motion";
+import { Briefcase, Network } from "lucide-react";
 
 function Item({
   role,
@@ -6,15 +10,24 @@ function Item({
   time,
   bullets,
   tag,
+  icon,
 }: {
   role: string;
   org: string;
   time: string;
   bullets: string[];
   tag: string;
+  icon: React.ReactNode;
 }) {
   return (
-    <div className="relative rounded-2xl border border-white/10 bg-white/5 p-6 shadow-glow">
+    <motion.div
+      initial={{ opacity: 0, y: 22 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      whileHover={{ y: -3 }}
+      className="relative rounded-2xl border border-white/10 bg-white/5 p-6 shadow-glow"
+    >
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <p className="font-mono text-xs text-white/60">{tag}</p>
@@ -24,7 +37,10 @@ function Item({
           <p className="mt-1 text-sm text-white/60">{time}</p>
         </div>
         <div className="rounded-lg border border-white/10 bg-black/20 px-3 py-2">
-          <p className="font-mono text-xs text-white/70">timeline</p>
+          <div className="flex items-center gap-2">
+            {icon}
+            <p className="font-mono text-xs text-white/70">timeline</p>
+          </div>
         </div>
       </div>
 
@@ -36,13 +52,13 @@ function Item({
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 export default function ExperienceTimeline() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-14 md:py-20">
+    <section className="container-shell section-shell">
       <SectionHeader
         eyebrow="Work experience"
         title="Enterprise-grade collaboration and systems thinking"
@@ -55,6 +71,7 @@ export default function ExperienceTimeline() {
           role="Full-Stack Intern"
           org="Zira, Sarajevo"
           time="Feb 2026 — Present"
+          icon={<Briefcase className="h-4 w-4 text-accent-400" />}
           bullets={[
             "Built Angular features (routing, components, RxJS) for reactive UI and API integration.",
             "Designed and consumed REST APIs in Spring Boot using layered architecture (Controller–Service–DAO).",
@@ -68,6 +85,7 @@ export default function ExperienceTimeline() {
           role="Intern"
           org="BH Telecom, Sarajevo"
           time="Apr 2025 — May 2025"
+          icon={<Network className="h-4 w-4 text-lilac-400" />}
           bullets={[
             "Supported IP/MPLS network configuration and monitoring tasks.",
             "Assisted routing and switching activities and learned practical optimization workflows.",
